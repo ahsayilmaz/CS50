@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+        <div class="container">
+            <div class="section1">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is always coming but never arrives?</h3>
+                <button class="button" id="train">German trains</button> <button class="button" id="M">messages</button>
+                <button class="button" id="ans">tomorrow</button> <button class="button" id="fool">teapot</button>
+                <!-- TODO: Add multiple choice question here -->
+            </div>
+            <div class="section2">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>What goes up but never ever comes down?</h3>
+                <input class="input" name="answer" placeholder="Type in lower case...">
+                <button class="button" id="check">Check Answer</button>
+                <!-- TODO: Add free response question here -->
+            </div>
+        </div>
+        <script>
+            // TODO: Add code to check answers to questions
+            let buttons = document.querySelectorAll(".button");
+            let count=0;
+            buttons.forEach(button => {
+                button.addEventListener("click", function(event) {
+                    let message;
+                    let input = document.querySelector(".input");
+                    let inputField = document.querySelector('input[name="answer"]');
+                    if (event.target.id == "check" && inputField.value == "your age") {
+                        message = "Correct";
+                        input.classList.add("input-correct");
+                        messageArea = document.querySelector(".section2");
+                    } else if(event.target.id=="check"){
+                        message = "Incorrect";
+                        input.classList.add("input-incorrect");
+                    }
+                    if (event.target.id == "ans") {
+                        message = "Correct";
+                        button.classList.add("button-correct");
+                    }else if(event.target.id!="check"){
+                        message = "Incorrect";
+                        button.classList.add("button-incorrect");
+                    }
+                    if(event.target.id!="check"){
+                        messageArea=document.querySelector(".section1");
+                    }else{
+                        messageArea=document.querySelector(".section2");
+                    }
+
+                    if(count<3){
+                        count++;
+                        let messageElement = document.createElement("p");
+                        messageArea.appendChild(messageElement);
+                        messageElement.textContent = message;
+                        setTimeout(function() {
+                            messageElement.remove();
+                            count--;
+                        }, 1000);
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
