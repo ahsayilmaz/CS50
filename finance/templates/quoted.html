@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quotes
+{% endblock %}
+
+{% block main %}
+<p>{{Quote["price"] | usd}}</p>
+{% endblock %}

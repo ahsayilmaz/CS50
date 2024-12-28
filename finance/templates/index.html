@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Main
+{% endblock %}
+
+{% block main %}
+<table>
+    <thead>
+        <tr>
+            <th>STOCK</th>
+            <th>PRICE</th>
+            <th>SHARES</th>
+            <th>Total</th>
+            <th>BALANCE : {{balance | usd}}   </th>
+            <th>GrandTotal {{(stocksTotal+balance) | usd}} </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for stock in stocks %}
+            <tr>
+                <td>{{ stock["symbol"] }}</td>
+                <td>{{ stock["price"] | usd }}</td>
+                <td>{{ stock["shares"] }}</td>
+                <td>{{ (stock["price"] * stock["shares"]) | usd }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

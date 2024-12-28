@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Trade History
+{% endblock %}
+
+{% block main %}
+<table>
+    <tbody>
+        <tr>
+            <tr>
+                <td> | symbol | </td>
+                <td> | price |</td>
+                <td> | shares | </td>
+                <td> | state | </td>
+                <td> | timestamp | </td>
+            </tr>
+            {% for history in histories %}
+                <tr>
+                    <td colspan=5>________________________________________________________________</td>
+                </tr>
+                <tr>
+                    <td> | {{ history.symbol }} | </td>
+                    <td> | {{ history.price }} |</td>
+                    <td> | {{ history.shares }} | </td>
+                    <td> | {{ history.state }} | </td>
+                    <td> | {{ history.timestamp }} | </td>
+                </tr>
+            {% endfor %}
+        </tr>
+        <!-- TODO: Loop through the database entries to display them in this table -->
+    </tbody>
+</table>
+{% endblock %}

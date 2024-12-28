@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quotes
+{% endblock %}
+
+{% block main %}
+<form action="/sell" method="post">
+    <table>
+        <tbody>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="symbol" placeholder="Quote symbol" type="text">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="share" placeholder="share" type="text">
+            <button class="btn btn-primary" type="submit">Sell</button>
+            <!-- TODO: Loop through the database entries to display them in this table -->
+        </tbody>
+    </table>
+</form>
+{% endblock %}
