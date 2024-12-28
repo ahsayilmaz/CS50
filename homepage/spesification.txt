@@ -1,0 +1,3 @@
+Html tags: button, table, tr, td, h3, p, h2, a, ol, li, ul, h1, input, script
+Css properties: body, .header, button, .home, .communication, .help, .thoughts
+color, font-size, font-weight, background-color, text-align, margin, border-radius
